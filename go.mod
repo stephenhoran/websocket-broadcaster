@@ -1,4 +1,4 @@
-module orders-broadcaster
+module websocket-broadcaster
 
 go 1.23.1
 
