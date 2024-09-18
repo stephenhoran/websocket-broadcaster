@@ -3,7 +3,7 @@ package main
 import (
 	"io"
 	"net/http"
-	"orders-broadcaster/clients"
+	"websocket-broadcaster/clients"
 	"os"
 	"os/signal"
 	"syscall"
