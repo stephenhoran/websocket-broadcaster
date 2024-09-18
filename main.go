@@ -60,7 +60,7 @@ func poller(pollingIntervals int, message chan<- []byte) {
 	}
 }
 
-func handleConnect(orders chan<- *websocket.Conn) func(w http.ResponseWriter, r *http.Request) {
+func handleConnect(clients chan<- *websocket.Conn) func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
 		log.WithFields(log.Fields{
 			"host": r.RemoteAddr,
@@ -76,7 +76,7 @@ func handleConnect(orders chan<- *websocket.Conn) func(w http.ResponseWriter, r 
 			}).Error("upgrade:", err)
 			return
 		}
-		orders <- c
+		clients <- c
 	}
 }
 
